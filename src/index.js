@@ -3,3 +3,20 @@ const init = () => {
 }
 
 document.addEventListener('DOMContentLoaded', init);
+const inputForm = document.querySelector("form");
+
+inputForm.addEventListener("submit", (event) => {
+    event.preventDefault()
+ 
+    fetch(`http://localhost:3000/movies/${input.value}`)
+    .then(response => response.json())
+    .then(data => {
+        const title = document.querySelector('section#movieDetails h4')
+        const summary = doument.querySelector('section#movieDetails p')
+
+        title.innerText = data.title
+        summary.innerText = data.summary
+    })
+});
+
+document.addEventListener("DOMContentLoaded", init)
